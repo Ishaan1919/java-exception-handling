@@ -1,7 +1,13 @@
 import java.util.Scanner;
 
-class InvalidAgeException extends Exception {
-    public InvalidAgeException(String message) {
+//class InvalidAgeException extends Exception {
+//    public InvalidAgeException(String message) {
+//        super(message);
+//    }
+//}
+
+class InvalidAgeException extends RuntimeException{
+    public InvalidAgeException(String message){
         super(message);
     }
 }
@@ -16,7 +22,7 @@ public class CustomException {
             validateAge(age);
         } catch (InvalidAgeException e) {
             System.out.println(e.getMessage());
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             System.out.println("Invalid input. Please enter a valid age.");
         } finally {
             scanner.close();
