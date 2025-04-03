@@ -6,18 +6,31 @@ import java.io.IOException;
 public class CheckedException {
     public static void main(String[] args) {
         String fileName = "data.txt";
-
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
             String line;
-            while ((line = reader.readLine()) != null) {
+            while((line = br.readLine())!=null){
                 System.out.println(line);
             }
-            reader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e) {
-            System.out.println("An error occurred while reading the file.");
+        } catch (FileNotFoundException e){
+            System.out.print(e.getMessage());
+//            e.printStackTrace();
         }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+//        try {
+//            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                System.out.println(line);
+//            }
+//            reader.close();
+//        } catch (FileNotFoundException e) {
+//            System.out.println("File not found");
+//        } catch (IOException e) {
+//            System.out.println("An error occurred while reading the file.");
+//        }
     }
 }
